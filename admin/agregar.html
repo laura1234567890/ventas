@@ -1,0 +1,80 @@
+<!DOCTPYE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Agregar</title>
+    <link rel="shortcut icon" type="image/x-icon" href="C:/xampp/htdocs/cloud/html/Globo/inicio/images/sorpresa1.jpg" />    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/iconos/css/fontello.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/menu.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/estilos-index.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/footer.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body style="background-color:rgb(255, 166, 211);">
+
+    <header>
+        <img src="C:/xampp/htdocs/cloud/html/Globo/inicio/images/sorpresa1.jpg" class="img-logo">
+        <input type="checkbox" id="check">
+        <label for="check" class="icon-menu"></label>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/inicio/index.html" style="background:#df6666;color:white;">Inicio</a></li>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/carrito/carrito.html">Carrito</a></li>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/registrarse/registro.html">Registro</a></li>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/productos.html">Productos</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+	<div class="container">
+		<h1> Lista de productos </h1>
+		<form action="" method="post">
+			<table id="lista_productos" class="table table-striped">
+				<thead>
+					<tr>
+						<th> Nombre </th>
+						<th> Descripción </th>
+						<th> Precio </th>
+						<th>  </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>  
+							<input type="text" name="nombre[]" class="nombre" placeholder="Nombre" />
+						</td>
+						<td>
+							<textarea name="descripcion[]" class="descripcion" placeholder="Descripción" width="100%"></textarea>
+						</td>
+						<td>
+							<input type="number" name="precio[]" class="precio" placeholder="Precio" /> 
+						</td>
+						<td> 
+							<button type="button" class="btn btn-danger button_eliminar_producto"> Eliminar </button> 
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">  </td>
+						<td>
+							<button type="button" class="btn btn-success button_agregar_producto"> Agregar </button>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/productos.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			productos();
+		});
+	</script>
+
+</body>
+</html>

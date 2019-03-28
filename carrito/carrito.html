@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito</title>
+    <link rel="shortcut icon" type="image/x-icon" href="C:/xampp/htdocs/cloud/html/Globo/inicio/images/sorpresa1.jpg" />    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/iconos/css/fontello.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/menu.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/estilos-index.css">
+    <link rel="stylesheet" href="C:/xampp/htdocs/cloud/html/Globo/inicio/css/footer.css">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body style="background-color:rgb(255, 166, 211);">
+
+    <header>
+        <img src="C:/xampp/htdocs/cloud/html/Globo/inicio/images/sorpresa1.jpg" class="img-logo">
+        <input type="checkbox" id="check">
+        <label for="check" class="icon-menu"></label>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/inicio/index.html" style="background:#df6666;color:white;">Inicio</a></li>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/carrito/carrito.html">Carrito</a></li>
+                <li><a href="C:/xampp/htdocs/cloud/html/Globo/registrarse/registro.html">Registro</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script>
+        window.onload = function () {
+
+            let baseDeDatos = [
+                {
+                    id: 1,
+                    nombre: 'Copa Decorada',
+                    precio: 7000
+
+                },
+
+                {
+                    id: 2,
+                    nombre: 'Paleta',
+                    precio: 2000
+
+                },
+                {
+                    id: 3,
+                    nombre: 'canasta',
+                    precio: 3000
+                },
+                {
+                    id: 4,
+                    nombre: 'Copa',
+                    precio: 5500
+                },
+                {
+                    id: 5,
+                    nombre: 'Conos',
+                    precio: 1000
+                },
+                {
+                    id: 6,
+                    nombre: 'Vaso',
+                    precio: 4000
+                },
+                {
+                    id: 7,
+                    nombre: 'Agradable',
+                    precio: 25000
+
+                },
+
+                {
+                    id: 8,
+                    nombre: 'Amigable',
+                    precio: 35000
+
+                },
+                {
+                    id: 9,
+                    nombre: 'Despertar',
+                    precio: 35000
+                },
+                {
+                    id: 10,
+                    nombre: 'Dulce',
+                    precio: 40000
+                },
+                {
+                    id: 11,
+                    nombre: 'Con cariño',
+                    precio: 45000
+                },
+                {
+                    id: 12,
+                    nombre: 'Sano',
+                    precio: 50000
+                },
+                {
+                    id: 13,
+                    nombre: 'Caja misteriosa',
+                    precio: 7000
+
+                }
+                ,
+
+                {
+                    id: 14,
+                    nombre: 'Sorpresa Infantil',
+                    precio: 5000
+
+                },
+                {
+                    id: 15,
+                    nombre: 'Encantado',
+                    precio: 15000
+                },
+                {
+                    id: 16,
+                    nombre: 'Caja dulce',
+                    precio: 10000
+                },
+                {
+                    id: 17,
+                    nombre: 'Decoracion de caja',
+                    precio: 8000
+                },
+                {
+                    id: 18,
+                    nombre: 'Feliz',
+                    precio: 25000
+                },
+                {
+                    id: 19,
+                    nombre: 'Sorpresa',
+                    precio: 8000
+
+                },
+                {
+                    id: 20,
+                    nombre: 'Detalle',
+                    precio: 8000
+
+                }
+                ,
+
+                {
+                    id: 21,
+                    nombre: 'Recuerdos',
+                    precio: 25000
+
+                },
+                {
+                    id: 22,
+                    nombre: 'Tierno',
+                    precio: 15000
+                },
+                {
+                    id: 23,
+                    nombre: 'Visita',
+                    precio: 20000
+                },
+                {
+                    id: 24,
+                    nombre: 'Explocion',
+                    precio: 40000
+                }
+
+
+            ]
+            let $items = document.querySelector('#items');
+            let carrito = [];
+            let total = 0;
+            let $carrito = document.querySelector('#carrito');
+            let $total = document.querySelector('#total');
+            // Funciones
+            function renderItems () {
+                for (let info of baseDeDatos) {
+                    // Estructura
+                    let miNodo = document.createElement('div');
+                    miNodo.classList.add('card', 'col-sm-4');
+                    // Body
+                    let miNodoCardBody = document.createElement('div');
+                    miNodoCardBody.classList.add('card-body');
+                    // Titulo
+                    let miNodoTitle = document.createElement('h5');
+                    miNodoTitle.classList.add('card-title');
+                    miNodoTitle.textContent = info['nombre'];
+                    // Precio
+                    let miNodoPrecio = document.createElement('p');
+                    miNodoPrecio.classList.add('card-text');
+                    miNodoPrecio.textContent = info['precio'] + '$';
+                    // Boton 
+                    let miNodoBoton = document.createElement('button');
+                    miNodoBoton.classList.add('btn', 'btn-primary');
+                    miNodoBoton.textContent = '+';
+                    miNodoBoton.setAttribute('marcador', info['id']);
+                    miNodoBoton.addEventListener('click', anyadirCarrito);
+                    // Insertar
+                    miNodoCardBody.appendChild(miNodoTitle);
+                    miNodoCardBody.appendChild(miNodoPrecio);
+                    miNodoCardBody.appendChild(miNodoBoton);
+                    miNodo.appendChild(miNodoCardBody);
+                    $items.appendChild(miNodo);
+                }
+            }
+            function anyadirCarrito () {
+                // Anadir el Nodo al carrito
+                carrito.push(this.getAttribute('marcador'))
+                // Calculo el total
+                calcularTotal();
+                // Renderizamos el carrito 
+                renderizarCarrito();
+
+            }
+
+            function renderizarCarrito () {
+                // Vaciamos todo el html
+                $carrito.textContent = '';
+                // Generamos los Nodos a partir de carrito
+                carrito.forEach(function (item, indice) {
+                    // Obtenemos el item que necesitamos de la variable base de datos
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    // Creamos el nodo del item del carrito
+                    let miNodo = document.createElement('li');
+                    miNodo.classList.add('list-group-item', 'text-right');
+                    miNodo.textContent = `${miItem[0]['nombre']} - ${miItem[0]['precio']}$`;
+                    // Boton de borrar
+                    let miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                    miBoton.textContent = 'X';
+                    miBoton.setAttribute('posicion', indice);
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    // Mezclamos nodos
+                    miNodo.appendChild(miBoton);
+                    $carrito.appendChild(miNodo);
+                })
+            }
+
+            function borrarItemCarrito () {
+                // Obtenemos la posicion que hay en el boton pulsado
+                let posicion = this.getAttribute('posicion');
+                // Borramos la posicion que nos interesa
+                carrito.splice(posicion, 1);
+                // volvemos a renderizar
+                renderizarCarrito();
+                // Calculamos de nuevo el precio
+                calcularTotal();
+            }
+
+            function calcularTotal () {
+                // Limpiamos precio anterior
+                total = 0;
+                // Recorremos el array del carrito
+                for (let item of carrito) {
+                    // De cada elemento obtenemos su precio
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    total = total + miItem[0]['precio'];
+                }
+                // Formateamos el total para que solo tenga dos decimales
+                let totalDosDecimales = total.toFixed(2);
+                // Renderizamos el precio en el HTML
+                $total.textContent = totalDosDecimales;
+            }
+            // Eventos
+
+            // Inicio
+            renderItems();
+        } 
+    </script>
+</head>
+<body>
+<div class="category_list">
+                <a href="C:/xampp/htdocs/cloud/html/Globo/inicio/index.html" class="category_item" category="helado">Inicio</a>
+</div>
+    <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: $<span id="total"></span></p>
+
+                <p id="bot">Medio de pago con:<img src="C:/xampp/htdocs/cloud/html\Globo/carrito/debito.jpg" class="img-logo"><input name="submit" type="submit" id="boton" value="debito" class="boton"/ ></p>
+                <p id="bot">Medio de pago con:<img src="C:/xampp/htdocs/cloud/html\Globo/carrito/credito.png" class="img-logo"><input name="submit" type="submit" id="boton" value="credito" class="boton"/ ></p>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
